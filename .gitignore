@@ -1,0 +1,14 @@
+# Logs
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Webstorm
+.idea
+
+#Mac
+.DS_Store
+
+#Project
+libs
