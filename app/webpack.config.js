@@ -25,6 +25,7 @@ module.exports = {
         "react": "React",
         "prop-types": "PropTypes" 
     },
+    node: { fs: 'empty' },
     module: {
         rules: [
             {

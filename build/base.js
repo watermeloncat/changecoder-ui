@@ -8,6 +8,7 @@ var env = require('minimist')(process.argv.slice(2)).env || "development";
 
 module.exports = {
     context: resolve(__dirname, '../src'),
+    devtool: 'eval-source-map',
     entry: {
         'react-ui': './index'
     },
@@ -26,6 +27,9 @@ module.exports = {
         "react-dom": "ReactDOM",
         "react": "React",
         "prop-types": "PropTypes" 
+    },
+    node: {
+        fs: 'empty'
     },
     module: {
         rules: [

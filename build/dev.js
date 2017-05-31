@@ -17,6 +17,12 @@ developmentConfig.entry["react-ui"] = [
     './index.js'
 ];
 
+developmentConfig.module.rules.push(
+            {
+                test: /\patterns.js$/,
+                exclude: /(node_modules)/,
+                use: ['transform-loader?brfs']
+            });
 developmentConfig.plugins = developmentConfig.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -26,8 +32,6 @@ developmentConfig.plugins = developmentConfig.plugins.concat([
         favicon: resolve(__dirname, '../src/images/favicon.ico')
     })
 ]);
-
-developmentConfig.devtool = 'inline-source-map';
 
 developmentConfig.devServer = { hot: true };
 
