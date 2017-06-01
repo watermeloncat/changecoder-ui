@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import * as CodeMirror from 'codemirror';
 
+import styles from './codeViewer.less';
+
+require('codemirror/mode/jsx/jsx');
+
 export default class CodeViewer extends Component {
     constructor(props) {
         super(props);
@@ -31,8 +35,8 @@ export default class CodeViewer extends Component {
 
     render() {
         return (
-            <div>
-                <span onClick={this.handleChange} >Run Code</span>
+            <div className={styles.codeViewer}>
+                <span onClick={this.handleChange} className={styles.runCode}>Run Code</span>
                 <textarea ref='editor' defaultValue={this.state.codeText} />
             </div>
         );
