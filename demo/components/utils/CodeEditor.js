@@ -5,7 +5,10 @@ import * as Babel from 'babel-standalone';
 import CodeViewer from './CodeViewer';
 import styles from './codeEditor.less';
 
-const { DatePicker } = require('../../src');
+const { 
+    DatePicker,
+    Pager
+} = require('../../../src');
 
 export default class CodeEditor extends Component {
     constructor(props) {
