@@ -15,11 +15,15 @@ class Sidebar extends Component {
                         <Link to='/'>React-UI</Link>
                         <h5>Form</h5>
                         <ul className={styles.componentPattern}>
-                            <li><Link to='/component/datepicker'>DateControl</Link></li>
+                            <li><Link to='/component/datepicker'>DatePicker</Link></li>
                         </ul>
                         <h5>List</h5>
                         <ul className={styles.componentPattern}>
                             <li><Link to='/component/pager'>Pager</Link></li>
+                        </ul>
+                        <h5>Date</h5>
+                        <ul className={styles.componentPattern}>
+                            <li><Link to='/component/calendar'>Calendar</Link></li>
                         </ul>
                     </div>
                     <div className={styles.component}>

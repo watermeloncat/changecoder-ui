@@ -1,9 +1,9 @@
-import Tooltip from './Tooltip';
+import Pager from './Pager';
 import DatePicker from './DatePicker';
-import DateControl from './DateControl';
+import Calendar from './Calendar';
 
 export {
-    Tooltip,
+    Calendar,
     DatePicker,
-    DateControl
+    Pager
 }

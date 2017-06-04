@@ -7,7 +7,8 @@ import styles from './codeEditor.less';
 
 const { 
     DatePicker,
-    Pager
+    Pager,
+    Calendar
 } = require('../../../src');
 
 export default class CodeEditor extends Component {

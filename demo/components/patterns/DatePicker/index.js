@@ -1,5 +1,5 @@
-const DateInstance = () => (
+const DatePickerInstance = () => (
     <DatePicker />
 );
 
-ReactDOM.render(<DateInstance />, mountNode);
+ReactDOM.render(<DatePickerInstance />, mountNode);

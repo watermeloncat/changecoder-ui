@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import App from '../web/App';
 import DatePickerPattern from '../components/DatePickerPattern';
 import PagerPattern from '../components/PagerPattern';
+import CalendarPattern from '../components/CalendarPattern';
 
 const Routes = {
     DatePicker: {
@@ -15,6 +16,10 @@ const Routes = {
     Pager: {
         path: '/component/pager',
         component: PagerPattern
+    },
+    Calendar: {
+        path: '/component/calendar',
+        component: CalendarPattern
     }
 }
 
