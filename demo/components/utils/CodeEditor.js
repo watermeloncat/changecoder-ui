@@ -94,7 +94,7 @@ export default class CodeEditor extends Component {
         const mountNode = this.clearExample();
         let compiledCode = null;
         try {
-            compiledCode = this.transform(this.state.codeText);
+            compiledCode = this.transform(this.state.codeText).code;
             eval(compiledCode);
         } catch (err) {
             if (compiledCode !== null) {
