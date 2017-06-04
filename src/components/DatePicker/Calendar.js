@@ -6,20 +6,29 @@ import styles from './index.less';
 class DatePicker extends Component {
     constructor(props) {
         super(props);
+        this.monthChange = this.monthChange.bind(this);
         this.state = {
             date: props.date
         };
     }
 
+    monthChange(val) {
+        const { date } = this.state;
+        this.setState({
+            date: date.clone().add(val, 'months')
+        });
+    }
+    
     renderMonthYear() {
-        const year = moment().get('year');
-        const month = moment().get('month');
+        const {date} = this.state;
+        const year = date.get('year');
+        const month = date.get('month');
         return (
             <div className={styles.MonthAndYear}>
-                <span className='icon-angle-left'></span>
-                <span className='Month'>{month}</span>  
-                <span className='Year'>{year}</span>
-                <span className='icon-angle-right'></span>
+                <span className='icon-angle-left' onClick={() => this.monthChange(-1)}></span>
+                <span className={styles.Month}>{ month+1 }</span>  
+                <span className={styles.Year}>{year}</span>
+                <span className='icon-angle-right' onClick={() => this.monthChange(+1)}></span>
             </div>
         )
     }
@@ -41,13 +50,14 @@ class DatePicker extends Component {
     }
 
     renderDays() {
-        const start = moment().startOf('month').get('weekday');
-        const currentMonthDaysCount = moment().endOf('month').get('date');
+        const { date } = this.state;
+        const start = date.clone().startOf('month').get('weekday');
+        const currentMonthDaysCount = date.clone().endOf('month').get('date');
         const lastMonthDaysCount = start;
         const nextMonthDaysCount = 42 - currentMonthDaysCount - lastMonthDaysCount;
         const days = [];
         if (lastMonthDaysCount > 0) {
-            const lastMonthDays = moment().add(-1, 'M').endOf('month').get('date');
+            const lastMonthDays = date.clone().add(-1, 'M').endOf('month').get('date');
             for (let i = 0; i < lastMonthDaysCount; i++) {
                 days.push(lastMonthDays -i);
             }
@@ -64,7 +74,6 @@ class DatePicker extends Component {
     }
 
     render() {
-        const { defaultDate } = this.props;
         return (
             <div className={styles.Calendar}>
                 {this.renderMonthYear()}
@@ -77,11 +86,11 @@ class DatePicker extends Component {
 
 DatePicker.defaultProps = {
     format: 'MMM DD YY',
-    defaultDate: moment().format('MMM DD YY')
+    date: moment()
 }
 
 DatePicker.propTypes = {
-    defaultDate: PropTypes.string,
+    date: PropTypes.object,
     format: PropTypes.string
 };
 
