@@ -4,7 +4,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                HomePage
+                Created By Baojian & Xieyixuan
             </div>
         );
     }
