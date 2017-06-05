@@ -14,18 +14,29 @@ class Calendar extends Component {
         this.renderYearAndMonth = this.renderYearAndMonth.bind(this);
         this.renderWeek = this.renderWeek.bind(this);
         this.renderDays = this.renderDays.bind(this);
+        this.changeMonth = this.changeMonth.bind(this);
+        this.state = {
+            showDate: props.showDate
+        };
+    }
+
+    changeMonth(num) {
+        const { showDate } = this.state;
+        this.setState({
+            showDate: showDate.clone().add(num, 'month')
+        });
     }
 
     renderYearAndMonth() {
-        const { showDate } = this.props;
+        const { showDate } = this.state;
         const year = showDate.year();
         const month = Months[showDate.month()];
         return (
             <div className={styles.YearAndMonth}>
-                <span className={cx('icon-angle-left', styles.leftIcon)}></span>
+                <span className={cx('icon-angle-left', styles.leftIcon)} onClick={() => this.changeMonth(-1)}></span>
                 <span className={styles.Month}>{month}</span>
                 <span className={styles.Year}>{year}</span>
-                <span className={cx('icon-angle-right', styles.rightIcon)}></span>
+                <span className={cx('icon-angle-right', styles.rightIcon)} onClick={() => this.changeMonth(1)}></span>
             </div>
         )
     }
@@ -45,7 +56,7 @@ class Calendar extends Component {
     }
 
     renderDays() {
-        const { showDate } = this.props;
+        const { showDate } = this.state;
         const lastMonthDaysCount = showDate.clone().startOf('month').weekday();
         const currentMonthDaysCount = showDate.clone().endOf('month').date();
         const nextMonthDaysCount = 42 - currentMonthDaysCount - lastMonthDaysCount;

@@ -8,7 +8,7 @@ class DayCell extends Component {
         const { dayMoment, isPassive } = this.props;
         const date = dayMoment.date();
         return (
-            <div className={styles.DayCell}>
+            <div className={classes}>
                 <span>{date}</span>
             </div>
         );
