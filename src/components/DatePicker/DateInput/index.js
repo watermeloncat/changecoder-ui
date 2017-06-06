@@ -6,7 +6,7 @@ class DateInput extends Component {
     render() {
         const { date, format} = this.props;
         return (
-            <ul className='DateInput'>
+            <ul className={styles.DateInput}>
                 <li>
                     <span className='icon-calendar'></span>
                 </li>
