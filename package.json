@@ -4,7 +4,7 @@
   "description": "react ui library",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --env=development --progress --profile --colors",
+    "start": "webpack-dev-server --env=development --history-api-fallback --progress --profile --colors",
     "publish": "webpack --config app/webpack.config.js",
     "build": "webpack --env=production --progress --profile --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
